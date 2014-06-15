@@ -2,8 +2,8 @@
 #define close_pin 12
 #define PIR_pin 2
 #define PIR2_pin 4
-#define hall_open_pin 5//returns zero if closed, one if open
-#define hall_closed_pin 6//returns zero if closed, one if open
+#define hall_open_pin 5
+#define hall_closed_pin 6
 unsigned long time = millis();
 void setup() {
   Serial.begin(9600);
@@ -13,8 +13,8 @@ void setup() {
   pinMode(PIR2_pin, INPUT);
   pinMode(hall_open_pin, INPUT);
   pinMode(hall_closed_pin, INPUT);
-  digitalWrite(open_pin, 0);//leave at fullpeed
-  digitalWrite(close_pin, 0);//turn off motor
+  digitalWrite(open_pin, 0);
+  digitalWrite(close_pin, 0);
 
   //zeroes the iris at boot to whatever end it isn't near
     make_open();
@@ -29,8 +29,7 @@ void loop() {
       make_closed();
   }
   
- // if(digitalRead(PIR_pin)|digitalRead(PIR2_pin))//if movement
-  if(digitalRead(PIR_pin)|digitalRead(PIR2_pin))//if movement
+   if(digitalRead(PIR_pin)|digitalRead(PIR2_pin))//if movement
   {  
    // Serial.println("people!");
       make_open();
